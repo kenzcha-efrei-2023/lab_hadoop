@@ -128,139 +128,138 @@ INFO  : Concurrency mode is disabled, not creating a lock manager<br />
 31 rows selected (0.215 seconds)<br />
 
 * Creating a database : `create database if not exists cmauvezin;`
-> trace : (when using `show databases;`)<\br>
-+---------------------+<\br>
-|    database_name    |<\br>
-+---------------------+<\br>
-| balthazar_r         |<\br>
-| baudouindlv         |<\br>
-| berenice            |<\br>
-| cgrandclaude        |<\br>
-| cjdidi              |<\br>
-| cmauvezin           | <-<\br>
-| default             |<\br>
-| eya_gheyouche       |<\br>
-| gudronlauret        |<\br>
-| gugulpb             |<\br>
-| ilyass_bourkaik     |<\br>
-| information_schema  |<\br>
-| jbenayad            |<\br>
-| jcrecel             |<\br>
-| llecomte            |<\br>
-| m_abatti            |<\br>
-| ma_baseismail       |<\br>
-| marieblein          |<\br>
-| mhatoum             |<\br>
-| ninon               |<\br>
-| rbocchini           |<\br>
-| rbouderghouma       |<\br>
-| revillon            |<\br>
-| sghlouci            |<\br>
-| spiquet             |<\br>
-| svassent            |<\br>
-| sys                 |<\br>
-| temp                |<\br>
-| vaihau_williamu     |<\br>
-| wangye              |<\br>
-| yang_chen           |<\br>
-| ymaassouli          |<\br>
-+---------------------+<\br>
+> trace : (when using `show databases;`)<br />
++---------------------+<br />
+|    database_name    |<br />
++---------------------+<br />
+| balthazar_r         |<br />
+| baudouindlv         |<br />
+| berenice            |<br />
+| cgrandclaude        |<br />
+| cjdidi              |<br />
+| cmauvezin           | <-<br />
+| default             |<br />
+| eya_gheyouche       |<br />
+| gudronlauret        |<br />
+| gugulpb             |<br />
+| ilyass_bourkaik     |<br />
+| information_schema  |<br />
+| jbenayad            |<br />
+| jcrecel             |<br />
+| llecomte            |<br />
+| m_abatti            |<br />
+| ma_baseismail       |<br />
+| marieblein          |<br />
+| mhatoum             |<br />
+| ninon               |<br />
+| rbocchini           |<br />
+| rbouderghouma       |<br />
+| revillon            |<br />
+| sghlouci            |<br /> 
+| spiquet             |<br />
+| svassent            |<br />
+| sys                 |<br />
+| temp                |<br />
+| vaihau_williamu     |<br />
+| wangye              |<br />
+| yang_chen           |<br />
+| ymaassouli          |<br />
++---------------------+<br />
 
 * Using my database : `use cmauvezin;`
-> trace : <\br>INFO  : Compiling command(queryId=hive_20210930175831_13ebb060-1933-4bf6-83ba-6b4c7ec00356): use cmauvezin<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-INFO  : Semantic Analysis Completed (retrial = false)<\br>
-INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)<\br>
-INFO  : Completed compiling command(queryId=hive_20210930175831_13ebb060-1933-4bf6-83ba-6b4c7ec00356); Time taken: 0.021 seconds<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-INFO  : Executing command(queryId=hive_20210930175831_13ebb060-1933-4bf6-83ba-6b4c7ec00356): use cmauvezin<\br>
-INFO  : Starting task [Stage-0:DDL] in serial mode<\br>
-INFO  : Completed executing command(queryId=hive_20210930175831_13ebb060-1933-4bf6-83ba-6b4c7ec00356); Time taken: 0.015 seconds<\br>
-INFO  : OK<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-No rows affected (0.051 seconds)<\br>
+> trace : <\br>INFO  : Compiling command(queryId=hive_20210930175831_13ebb060-1933-4bf6-83ba-6b4c7ec00356): use cmauvezin<b /r>
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Semantic Analysis Completed (retrial = false)<br />
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)<br />
+INFO  : Completed compiling command(queryId=hive_20210930175831_13ebb060-1933-4bf6-83ba-6b4c7ec00356); Time taken: 0.021 seconds<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Executing command(queryId=hive_20210930175831_13ebb060-1933-4bf6-83ba-6b4c7ec00356): use cmauvezin<br />
+INFO  : Starting task [Stage-0:DDL] in serial mode<br />
+INFO  : Completed executing command(queryId=hive_20210930175831_13ebb060-1933-4bf6-83ba-6b4c7ec00356); Time taken: 0.015 seconds<br />
+INFO  : OK<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+No rows affected (0.051 seconds)<br />
 
 * list tables `show tables;`
-> traces : <\br> INFO  : Compiling command(queryId=hive_20210930175932_ef674a9f-13cd-45e6-89fd-83699abb5b67): show tables<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-INFO  : Semantic Analysis Completed (retrial = false)<\br>
-INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:tab_name, type:string, comment:from deserializer)], properties:null)<\br>
-INFO  : Completed compiling command(queryId=hive_20210930175932_ef674a9f-13cd-45e6-89fd-83699abb5b67); Time taken: 0.034 seconds<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-INFO  : Executing command(queryId=hive_20210930175932_ef674a9f-13cd-45e6-89fd-83699abb5b67): show tables<\br>
-INFO  : Starting task [Stage-0:DDL] in serial mode<\br>
-INFO  : Completed executing command(queryId=hive_20210930175932_ef674a9f-13cd-45e6-89fd-83699abb5b67); Time taken: 0.027 seconds<\br>
-INFO  : OK<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-+-----------+<\br>
-| tab_name  |<\br>
-+-----------+<\br>
-+-----------+<\br>
-No rows selected (0.079 seconds)<\br>
+> traces : <\br> INFO  : Compiling command(queryId=hive_20210930175932_ef674a9f-13cd-45e6-89fd-83699abb5b67): show tables<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Semantic Analysis Completed (retrial = false)<br />
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:tab_name, type:string, comment:from deserializer)], properties:null)<br />
+INFO  : Completed compiling command(queryId=hive_20210930175932_ef674a9f-13cd-45e6-89fd-83699abb5b67); Time taken: 0.034 seconds<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Executing command(queryId=hive_20210930175932_ef674a9f-13cd-45e6-89fd-83699abb5b67): show tables<br />
+INFO  : Starting task [Stage-0:DDL] in serial mode<br />
+INFO  : Completed executing command(queryId=hive_20210930175932_ef674a9f-13cd-45e6-89fd-83699abb5b67); Time taken: 0.027 seconds<br />
+INFO  : OK<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
++-----------+<br />
+| tab_name  |<br />
++-----------+<br />
++-----------+<br />
+No rows selected (0.079 seconds)<br />
 
 * Create temp`create table if not exists temp col (string);`
-> trace : <\br>INFO  : Compiling command(queryId=hive_20210930182249_b6cb27f3-7220-45d8-a8e0-a3480ebf7c5d): create table if not exists temp (col string);<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-INFO  : Semantic Analysis Completed (retrial = false)<\br>
-INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)<\br>
-INFO  : Completed compiling command(queryId=hive_20210930182249_b6cb27f3-7220-45d8-a8e0-a3480ebf7c5d); Time taken: 0.04 seconds<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-INFO  : Executing command(queryId=hive_20210930182249_b6cb27f3-7220-45d8-a8e0-a3480ebf7c5d): create table if not exists temp (col string);<\br>
-INFO  : Starting task [Stage-0:DDL] in serial mode<\br>
-INFO  : Completed executing command(queryId=hive_20210930182249_b6cb27f3-7220-45d8-a8e0-a3480ebf7c5d); Time taken: 0.063 seconds<\br>
-INFO  : OK<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-No rows affected (0.125 seconds)<\br>
+> trace : <\br>INFO  : Compiling command(queryId=hive_20210930182249_b6cb27f3-7220-45d8-a8e0-a3480ebf7c5d): create table if not exists temp (col string);<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Semantic Analysis Completed (retrial = false)<br />
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)<br />
+INFO  : Completed compiling command(queryId=hive_20210930182249_b6cb27f3-7220-45d8-a8e0-a3480ebf7c5d); Time taken: 0.04 seconds<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Executing command(queryId=hive_20210930182249_b6cb27f3-7220-45d8-a8e0-a3480ebf7c5d): create table if not exists temp (col string);<br />
+INFO  : Starting task [Stage-0:DDL] in serial mode<br />
+INFO  : Completed executing command(queryId=hive_20210930182249_b6cb27f3-7220-45d8-a8e0-a3480ebf7c5d); Time taken: 0.063 seconds<br />
+INFO  : OK<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+No rows affected (0.125 seconds)<br />
 
 * Confirm the table creation `show tables;`
-> trace : <\br>INFO  : Executing command(queryId=hive_20210930182310_2f122ea0-3d79-4188-8f07-1a60a4806b84): show tables<\br>
-INFO  : Starting task [Stage-0:DDL] in serial mode<\br>
-INFO  : Completed executing command(queryId=hive_20210930182310_2f122ea0-3d79-4188-8f07-1a60a4806b84); Time taken: 0.025 seconds<\br>
-INFO  : OK<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-+-----------+<\br>
-| tab_name  |<\br>
-+-----------+<\br>
-| temp      |<\br>
-+-----------+<\br>
-1 row selected (0.106 seconds)<\br>
+> trace : <\br>INFO  : Executing command(queryId=hive_20210930182310_2f122ea0-3d79-4188-8f07-1a60a4806b84): show tables<br />
+INFO  : Starting task [Stage-0:DDL] in serial mode<br />
+INFO  : Completed executing command(queryId=hive_20210930182310_2f122ea0-3d79-4188-8f07-1a60a4806b84); Time taken: 0.025 seconds<br />
+INFO  : OK<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
++-----------+<br />
+| tab_name  |<br />
++-----------+<br />
+| temp      |<br />
++-----------+<br />
+1 row selected (0.106 seconds)<br />
 
 * List the columns : `describe temp;`
-> trace : <\br>INFO  : Compiling command(queryId=hive_20210930183004_495b9794-cca4-4583-a11b-b614169e6684): describe temp<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-INFO  : Semantic Analysis Completed (retrial = false)<\br>
-INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:col_name, type:string, comment:from deserializer), FieldSchema(name:data_type, type:string, comment:from deserializer), FieldSchema(name:comment, type:string, comment:from deserializer)], properties:null)<\br>
-INFO  : Completed compiling command(queryId=hive_20210930183004_495b9794-cca4-4583-a11b-b614169e6684); Time taken: 0.029 seconds<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-INFO  : Executing command(queryId=hive_20210930183004_495b9794-cca4-4583-a11b-b614169e6684): describe temp<\br>
-INFO  : Starting task [Stage-0:DDL] in serial mode<\br>
-INFO  : Completed executing command(queryId=hive_20210930183004_495b9794-cca4-4583-a11b-b614169e6684); Time taken: 0.018 seconds<\br>
-INFO  : OK<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-+-----------+------------+----------+<\br>
-| col_name  | data_type  | comment  |<\br>
-+-----------+------------+----------+<\br>
-| col       | string     |          |<\br>
-+-----------+------------+----------+<\br>
-1 row selected (0.07 seconds)<\br>
-
+> trace : <\br>INFO  : Compiling command(queryId=hive_20210930183004_495b9794-cca4-4583-a11b-b614169e6684): describe temp<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Semantic Analysis Completed (retrial = false)<br />
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:col_name, type:string, comment:from deserializer), FieldSchema(name:data_type, type:string, comment:from deserializer), FieldSchema(name:comment, type:string, comment:from deserializer)], properties:null)<br />
+INFO  : Completed compiling command(queryId=hive_20210930183004_495b9794-cca4-4583-a11b-b614169e6684); Time taken: 0.029 seconds<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Executing command(queryId=hive_20210930183004_495b9794-cca4-4583-a11b-b614169e6684): describe temp<br />
+INFO  : Starting task [Stage-0:DDL] in serial mode<br />
+INFO  : Completed executing command(queryId=hive_20210930183004_495b9794-cca4-4583-a11b-b614169e6684); Time taken: 0.018 seconds<br />
+INFO  : OK<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
++-----------+------------+----------+<br />
+| col_name  | data_type  | comment  |<br />
++-----------+------------+----------+<br />
+| col       | string     |          |<br />
++-----------+------------+----------+<br />
+1 row selected (0.07 seconds)<br />
 * Removing the table `drop table temp`
-> trace : INFO  : Compiling command(queryId=hive_20210930183126_9e3a6e6d-09fc-4f35-ab22-fd223fbcddd4): drop table temp<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-INFO  : Semantic Analysis Completed (retrial = false)<\br>
-INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)<\br>
-INFO  : Completed compiling command(queryId=hive_20210930183126_9e3a6e6d-09fc-4f35-ab22-fd223fbcddd4); Time taken: 0.077 seconds<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-INFO  : Executing command(queryId=hive_20210930183126_9e3a6e6d-09fc-4f35-ab22-fd223fbcddd4): drop table temp<\br>
-INFO  : Starting task [Stage-0:DDL] in serial mode<\br>
-INFO  : Completed executing command(queryId=hive_20210930183126_9e3a6e6d-09fc-4f35-ab22-fd223fbcddd4); Time taken: 0.196 seconds<\br>
-INFO  : OK<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-No rows affected (0.294 seconds)<\br>
+> trace : INFO  : Compiling command(queryId=hive_20210930183126_9e3a6e6d-09fc-4f35-ab22-fd223fbcddd4): drop table temp<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Semantic Analysis Completed (retrial = false)<br />
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)<br />
+INFO  : Completed compiling command(queryId=hive_20210930183126_9e3a6e6d-09fc-4f35-ab22-fd223fbcddd4); Time taken: 0.077 seconds<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Executing command(queryId=hive_20210930183126_9e3a6e6d-09fc-4f35-ab22-fd223fbcddd4): drop table temp<br />
+INFO  : Starting task [Stage-0:DDL] in serial mode<br /> 
+INFO  : Completed executing command(queryId=hive_20210930183126_9e3a6e6d-09fc-4f35-ab22-fd223fbcddd4); Time taken: 0.196 seconds<br />
+INFO  : OK<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+No rows affected (0.294 seconds)<br />
 
 * Quitting : `!quit`
-> trace : <\br> Closing: 1: jdbc:hive2://hadoop-master01.efrei.online:2181,hadoop-master02.efrei.online:2181,hadoop-master03.efrei.online:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2<\br>
-Closing: 0: jdbc:hive2://hadoop-master01.efrei.online:2181,hadoop-master02.efrei.online:2181,hadoop-master03.efrei.online:2181/default;httpPath=cliservice;principal=hive/_HOST@EFREI.ONLINE;serviceDiscoveryMode=zooKeeper;ssl=true;transportMode=http;zooKeeperNamespace=hiveserver2<\br>
-21/09/30 18:32:49 [shutdown-hook-0]: INFO jdbc.HiveConnection: Could not connect to the server. Retrying one more time.<\br>
+> trace : <\br> Closing: 1: jdbc:hive2://hadoop-master01.efrei.online:2181,hadoop-master02.efrei.online:2181,hadoop-master03.efrei.online:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2<br />
+Closing: 0: jdbc:hive2://hadoop-master01.efrei.online:2181,hadoop-master02.efrei.online:2181,hadoop-master03.efrei.online:2181/default;httpPath=cliservice;principal=hive/_HOST@EFREI.ONLINE;serviceDiscoveryMode=zooKeeper;ssl=true;transportMode=http;zooKeeperNamespace=hiveserver2<br />
+21/09/30 18:32:49 [shutdown-hook-0]: INFO jdbc.HiveConnection: Could not connect to the server. Retrying one more time.<br />
 
 ### Create tables
