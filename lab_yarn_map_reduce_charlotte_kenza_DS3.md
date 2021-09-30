@@ -47,61 +47,61 @@
   then `hdfs dfs -ls out` give the following result :
   
     >Found 2 items <br />                                                                                                                                                                         
-    Found 2 items
--rw-r--r--   3 c.mauvezin c.mauvezin          0 2021-09-30 14:49 out/_SUCCESS
--rw-r--r--   3 c.mauvezin c.mauvezin     129593 2021-09-30 14:49 out/part-r-00000
+    Found 2 items<br />
+-rw-r--r--   3 c.mauvezin c.mauvezin          0 2021-09-30 14:49 out/_SUCCESS<br />
+-rw-r--r--   3 c.mauvezin c.mauvezin     129593 2021-09-30 14:49 out/part-r-00000 <br />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 - executing `hdfs dfs -cat ./out/part-r-00000 | tail -n 10`
-    >“‘How   1
-    “‘I     1
-    “‘It    1
-    “‘May   1
-    “‘Near  1
-    “‘No,   1
-    “‘No;   1
-    “‘That  1
-    “‘They  1
-    “‘Where 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+    >“‘How   1<br />
+    “‘I     1<br />
+    “‘It    1<br />
+    “‘May   1<br />
+    “‘Near  1<br />
+    “‘No,   1<br />
+    “‘No;   1<br />
+    “‘That  1<br />
+    “‘They  1<br />
+    “‘Where 1      <br />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 
 *1.3*
 
 - `yarn jar /usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku sudoku.dta`
 
-    > Solving sudoku.dta
-8 5 1 3 9 2 6 4 7
-4 3 2 6 7 8 1 9 5
-7 9 6 5 1 4 3 8 2
-6 1 4 8 2 3 7 5 9
-5 7 8 9 6 1 4 2 3
-3 2 9 4 5 7 8 1 6
-9 4 7 2 8 6 5 3 1
-1 8 5 7 3 9 2 6 4
-2 6 3 1 4 5 9 7 8
-Found 1 solutions
+    > Solving sudoku.dta<br />
+8 5 1 3 9 2 6 4 7<br />
+4 3 2 6 7 8 1 9 5<br />
+7 9 6 5 1 4 3 8 2<br />
+6 1 4 8 2 3 7 5 9<br />
+5 7 8 9 6 1 4 2 3<br />
+3 2 9 4 5 7 8 1 6<br />
+9 4 7 2 8 6 5 3 1<br />
+1 8 5 7 3 9 2 6 4<br />
+2 6 3 1 4 5 9 7 8<br />
+Found 1 solutions<br />
 
 -  `yarn  jar  /usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000`
 
     \[...\]
 
-    >Job Finished in 28.269 seconds
+    >Job Finished in 28.269 seconds<br />
 Estimated value of Pi is 3.14159239750000000000
   `hdfs dfs -ls data/10GB-sort-input`
-    >Found 3 items
--rw-r--r--   3 c.mauvezin c.mauvezin          0 2021-09-28 14:52 data/10GB-sort-input/_SUCCESS
--rw-r--r--   3 c.mauvezin c.mauvezin 5000000000 2021-09-28 14:52 data/10GB-sort-input/part-m-00000
--rw-r--r--   3 c.mauvezin c.mauvezin 5000000000 2021-09-28 14:52 data/10GB-sort-input/part-m-00001
+    >Found 3 items<br />
+-rw-r--r--   3 c.mauvezin c.mauvezin          0 2021-09-28 14:52 data/10GB-sort-input/_SUCCESS<br />
+-rw-r--r--   3 c.mauvezin c.mauvezin 5000000000 2021-09-28 14:52 data/10GB-sort-input/part-m-00000<br />
+-rw-r--r--   3 c.mauvezin c.mauvezin 5000000000 2021-09-28 14:52 data/10GB-sort-input/part-m-00001<br />
 
 - `yarn  jar /usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /user/c.mauvezin/data/10GB-sort-input  /user/c.mauvezin/data/10GB-sort-output`
 
     `hdfs dfs -ls data/10GB-sort-output`
-    > Found 3 items
--rw-r--r--   1 c.mauvezin c.mauvezin           0 2021-09-28 15:07 data/10GB-sort-output/_SUCCESS
--rw-r--r--  10 c.mauvezin c.mauvezin           0 2021-09-28 15:02 data/10GB-sort-output/_partition.lst
--rw-r--r--   1 c.mauvezin c.mauvezin 10000000000 2021-09-28 15:07 data/10GB-sort-output/part-r-00000
+    > Found 3 items<br />
+-rw-r--r--   1 c.mauvezin c.mauvezin           0 2021-09-28 15:07 data/10GB-sort-output/_SUCCESS<br />
+-rw-r--r--  10 c.mauvezin c.mauvezin           0 2021-09-28 15:02 data/10GB-sort-output/_partition.lst<br />
+-rw-r--r--   1 c.mauvezin c.mauvezin 10000000000 2021-09-28 15:07 data/10GB-sort-output/part-r-00000<br />
 
 - `yarn jar /usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /user/c.mauvezin/data/10GB-sort-output /user/c.mauvezin/data/10GB-sort-validate`
    `hdfs dfs -cat data/10GB-sort-validate/part-r-00000`
-    >checksum        2fafbaf537afd49
+    >checksum        2fafbaf537afd49<br />
 
 *2.3.1*
 
