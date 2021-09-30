@@ -1,0 +1,17 @@
+# Apache Hive TP
+
+## 1 Hive Beeline Client
+### 1.1 Create a connection to Beeline Client 
+
+* connexion to Hadoop : `ssh c.mauvezin@163.172.102.44`
+  trace : `Last login: Wed Sep 29 17:35:07 2021 from nat-in-drelab.groupe-efrei.fr`
+  
+* Initialize Kerberos ticket : `kinit`
+
+* typing `beeline` 
+    trace : `21/09/30 10:49:11 [main]: INFO jdbc.HiveConnection: Connected to hadoop-master02.efrei.online:10001
+    Connected to: Apache Hive (version 3.1.2.1.0.3.0-223)
+    Driver: Hive JDBC (version 3.1.2.1.0.3.0-223)
+    Transaction isolation: TRANSACTION_REPEATABLE_READ
+    Beeline version 3.1.2.1.0.3.0-223 by Apache Hive`
+*
