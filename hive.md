@@ -10,16 +10,16 @@
 
 * Connecting to server : `!connect jdbc:hive2://hadoop-master01.efrei.online:2181,hadoop-master02.efrei.online:2181,hadoop-master03.efrei.online:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2`
 > 21/09/30 16:57:47 [main]: INFO jdbc.HiveConnection: Connected to hadoop-master01.efrei.online:10001<\br>
-Connected to: Apache Hive (version 3.1.2.1.0.3.0-223)<\br>
-Driver: Hive JDBC (version 3.1.2.1.0.3.0-223)<\br>
-Transaction isolation: TRANSACTION_REPEATABLE_READ<\br>
+Connected to: Apache Hive (version 3.1.2.1.0.3.0-223)<br />
+Driver: Hive JDBC (version 3.1.2.1.0.3.0-223)<br />
+Transaction isolation: TRANSACTION_REPEATABLE_READ<br />
 
 * typing `beeline` 
-> trace : <\br>`21/09/30 10:49:11 [main]: INFO jdbc.HiveConnection: Connected to hadoop-master02.efrei.online:10001<\br>
-    Connected to: Apache Hive (version 3.1.2.1.0.3.0-223)<\br>
-    Driver: Hive JDBC (version 3.1.2.1.0.3.0-223)<\br>
-    Transaction isolation: TRANSACTION_REPEATABLE_READ<\br>
-    Beeline version 3.1.2.1.0.3.0-223 by Apache Hive`<\br>
+> trace : <\br>`21/09/30 10:49:11 [main]: INFO jdbc.HiveConnection: Connected to hadoop-master02.efrei.online:10001< /br>
+    Connected to: Apache Hive (version 3.1.2.1.0.3.0-223)<br />
+    Driver: Hive JDBC (version 3.1.2.1.0.3.0-223)<br />
+    Transaction isolation: TRANSACTION_REPEATABLE_READ<br />
+    Beeline version 3.1.2.1.0.3.0-223 by Apache Hive`<br />
 * `help`
 > trace <\br> !addlocaldriverjar  Add driver jar file in the beeline client side.<\br>
 !addlocaldrivername Add driver name that needs to be supported in the beeline<\br>
