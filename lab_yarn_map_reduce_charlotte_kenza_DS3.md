@@ -103,6 +103,7 @@ Estimated value of Pi is 3.14159239750000000000
    `hdfs dfs -cat data/10GB-sort-validate/part-r-00000`
     >checksum        2fafbaf537afd49<br />
 
+## Part 2 : MapReduce
 *2.3.1*
 
 Here's the content of my mapper.py file :
