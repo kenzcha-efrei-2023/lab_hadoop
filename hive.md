@@ -15,117 +15,117 @@ Driver: Hive JDBC (version 3.1.2.1.0.3.0-223)<br />
 Transaction isolation: TRANSACTION_REPEATABLE_READ<br />
 
 * typing `beeline` 
-> trace : <\br>`21/09/30 10:49:11 [main]: INFO jdbc.HiveConnection: Connected to hadoop-master02.efrei.online:10001< /br>
+> trace : <br />`21/09/30 10:49:11 [main]: INFO jdbc.HiveConnection: Connected to hadoop-master02.efrei.online:10001< /br>
     Connected to: Apache Hive (version 3.1.2.1.0.3.0-223)<br />
     Driver: Hive JDBC (version 3.1.2.1.0.3.0-223)<br />
     Transaction isolation: TRANSACTION_REPEATABLE_READ<br />
     Beeline version 3.1.2.1.0.3.0-223 by Apache Hive`<br />
 * `help`
-> trace <\br> !addlocaldriverjar  Add driver jar file in the beeline client side.<\br>
-!addlocaldrivername Add driver name that needs to be supported in the beeline<\br>
-                    client side.<\br>
-!all                Execute the specified SQL against all the current connections<\br>
-!autocommit         Set autocommit mode on or off<\br>
-!batch              Start or execute a batch of statements<\br>
-!brief              Set verbose mode off<\br>
-!call               Execute a callable statement<\br>
-!close              Close the current connection to the database<\br>
-!closeall           Close all current open connections<\br>
-!columns            List all the columns for the specified table<\br>
-!commit             Commit the current transaction (if autocommit is off)<\br>
-!connect            Open a new connection to the database.<\br>
-!dbinfo             Give metadata information about the database<\br>
-!delimiter          Sets the query delimiter, defaults to ;<\br>
-!describe           Describe a table<\br>
-!dropall            Drop all tables in the current database<\br>
-!exportedkeys       List all the exported keys for the specified table<\br>
-!go                 Select the current connection<\br>
-!help               Print a summary of command usage<\br>
-!history            Display the command history<\br>
-!importedkeys       List all the imported keys for the specified table<\br>
-!indexes            List all the indexes for the specified table<\br>
-!isolation          Set the transaction isolation for this connection<\br>
-!list               List the current connections<\br>
-!manual             Display the BeeLine manual<\br>
-!metadata           Obtain metadata information<\br>
-!nativesql          Show the native SQL for the specified statement<\br>
+> trace <br /> !addlocaldriverjar  Add driver jar file in the beeline client side.<br />
+!addlocaldrivername Add driver name that needs to be supported in the beeline<br />
+                    client side.<br />
+!all                Execute the specified SQL against all the current connections<br />
+!autocommit         Set autocommit mode on or off<br />
+!batch              Start or execute a batch of statements<br />
+!brief              Set verbose mode off<br />
+!call               Execute a callable statement<br />
+!close              Close the current connection to the database<br />
+!closeall           Close all current open connections<br />
+!columns            List all the columns for the specified table<br />
+!commit             Commit the current transaction (if autocommit is off)<br />
+!connect            Open a new connection to the database.<br />
+!dbinfo             Give metadata information about the database<br />
+!delimiter          Sets the query delimiter, defaults to ;<br />
+!describe           Describe a table<b /r>
+!dropall            Drop all tables in the current database<br />
+!exportedkeys       List all the exported keys for the specified table<br />
+!go                 Select the current connection<br />
+!help               Print a summary of command usage<br />
+!history            Display the command history<br />
+!importedkeys       List all the imported keys for the specified table<br />
+!indexes            List all the indexes for the specified table<br />
+!isolation          Set the transaction isolation for this connection<br />
+!list               List the current connections<br />
+!manual             Display the BeeLine manual<br />
+!metadata           Obtain metadata information<br />
+!nativesql          Show the native SQL for the specified statement<br />
 !nullemptystring    Set to true to get historic behavior of printing null as
-                    empty string. Default is false.<\br>
+                    empty string. Default is false.<br />
 !outputformat       Set the output format for displaying results
                     (table,vertical,csv2,dsv,tsv2,xmlattrs,xmlelements, and
-                    deprecated formats(csv, tsv))<\br>
-!primarykeys        List all the primary keys for the specified table<\br>
-!procedures         List all the procedures<\br>
-!properties         Connect to the database specified in the properties file(s)<\br>
-!quit               Exits the program<\br>
-!reconnect          Reconnect to the database<\br>
-!record             Record all output to the specified file<\br>
-!rehash             Fetch table and column names for command completion<\br>
-!rollback           Roll back the current transaction (if autocommit is off)<\br>
-!run                Run a script from the specified file<\br>
-!save               Save the current variabes and aliases<\br>
-!scan               Scan for installed JDBC drivers<\br>
-!script             Start saving a script to a file<\br>
-!set                Set a beeline variable<\br>
-!sh                 Execute a shell command<\br>
-!sql                Execute a SQL command<\br>
-!tables             List all the tables in the database<\br>
-!typeinfo           Display the type map for the current connection<\br>
-!verbose            Set verbose mode on<\br>
+                    deprecated formats(csv, tsv))<br />
+!primarykeys        List all the primary keys for the specified table<br />
+!procedures         List all the procedures<br />
+!properties         Connect to the database specified in the properties file(s)<br />
+!quit               Exits the program<br />
+!reconnect          Reconnect to the database<br />
+!record             Record all output to the specified file<br />
+!rehash             Fetch table and column names for command completion<br />
+!rollback           Roll back the current transaction (if autocommit is off)<br />
+!run                Run a script from the specified file<br />
+!save               Save the current variabes and aliases<br />
+!scan               Scan for installed JDBC drivers<br />
+!script             Start saving a script to a file<br />
+!set                Set a beeline variable<br />
+!sh                 Execute a shell command<br />
+!sql                Execute a SQL command<br />
+!tables             List all the tables in the database<br />
+!typeinfo           Display the type map for the current connection<br />
+!verbose            Set verbose mode on<br />
 
 * Command to allow user to view the jdbc connection to connect to HiveServer2 : `!list`
-> trace :<\br> 2 active connections:<\br>
- #0  open     jdbc:hive2://hadoop-master01.efrei.online:2181,hadoop-master02.efrei.online:2181,hadoop-master03.efrei.online:2181/default;httpPath=cliservice;principal=hive/_HOST@EFREI.ONLINE;serviceDiscoveryMode=zooKeeper;ssl=true;transportMode=http;zooKeeperNamespace=hiveserver2<\br>
- #1  open     jdbc:hive2://hadoop-master01.efrei.online:2181,hadoop-master02.efrei.online:2181,hadoop-master03.efrei.online:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2<\br>
+> trace :<\br> 2 active connections:<br />
+ #0  open     jdbc:hive2://hadoop-master01.efrei.online:2181,hadoop-master02.efrei.online:2181,hadoop-master03.efrei.online:2181/default;httpPath=cliservice;principal=hive/_HOST@EFREI.ONLINE;serviceDiscoveryMode=zooKeeper;ssl=true;transportMode=http;zooKeeperNamespace=hiveserver2<br />
+ #1  open     jdbc:hive2://hadoop-master01.efrei.online:2181,hadoop-master02.efrei.online:2181,hadoop-master03.efrei.online:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2<br />
  
 * Showing the databases : `show databases ;`
-> trace :<\br>INFO  : Compiling command(queryId=hive_20210930174113_c47a0388-4bf5-4adf-a7e7-6d53c53c7979): show databases<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-INFO  : Semantic Analysis Completed (retrial = false)<\br>
-INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:database_name, type:string, comment:from deserializer)], properties:null)<\br>
-INFO  : Completed compiling command(queryId=hive_20210930174113_c47a0388-4bf5-4adf-a7e7-6d53c53c7979); Time taken: 0.082 seconds<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-INFO  : Executing command(queryId=hive_20210930174113_c47a0388-4bf5-4adf-a7e7-6d53c53c7979): show databases<\br>
-INFO  : Starting task [Stage-0:DDL] in serial mode<\br>
-INFO  : Completed executing command(queryId=hive_20210930174113_c47a0388-4bf5-4adf-a7e7-6d53c53c7979); Time taken: 0.011 seconds<\br>
-INFO  : OK<\br>
-INFO  : Concurrency mode is disabled, not creating a lock manager<\br>
-+---------------------+<\br>
-|    database_name    |<\br>
-+---------------------+<\br>
-| balthazar_r         |<\br>
-| baudouindlv         |<\br>
-| berenice            |<\br>
-| cgrandclaude        |<\br>
-| cjdidi              |<\br>
-| default             |<\br>
-| eya_gheyouche       |<\br>
-| gudronlauret        |<\br>
-| gugulpb             |<\br>
-| ilyass_bourkaik     |<\br>
-| information_schema  |<\br>
-| jbenayad            |<\br>
-| jcrecel             |<\br>
-| llecomte            |<\br>
-| m_abatti            |<\br>
-| ma_baseismail       |<\br>
-| marieblein          |<\br>
-| mhatoum             |<\br>
-| ninon               |<\br>
-| rbocchini           |<\br>
-| rbouderghouma       |<\br>
-| revillon            |<\br>
-| sghlouci            |<\br>
-| spiquet             |<\br>
-| svassent            |<\br>
-| sys                 |<\br>
-| temp                |<\br>
-| vaihau_williamu     |<\br>
-| wangye              |<\br>
-| yang_chen           |<\br>
-| ymaassouli          |<\br>
-+---------------------+<\br>
-31 rows selected (0.215 seconds)<\br>
+> trace :<\br>INFO  : Compiling command(queryId=hive_20210930174113_c47a0388-4bf5-4adf-a7e7-6d53c53c7979): show databases<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Semantic Analysis Completed (retrial = false)<br />
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:database_name, type:string, comment:from deserializer)], properties:null)<br />
+INFO  : Completed compiling command(queryId=hive_20210930174113_c47a0388-4bf5-4adf-a7e7-6d53c53c7979); Time taken: 0.082 seconds<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Executing command(queryId=hive_20210930174113_c47a0388-4bf5-4adf-a7e7-6d53c53c7979): show databases<br />
+INFO  : Starting task [Stage-0:DDL] in serial mode<br />
+INFO  : Completed executing command(queryId=hive_20210930174113_c47a0388-4bf5-4adf-a7e7-6d53c53c7979); Time taken: 0.011 seconds<br />
+INFO  : OK<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
++---------------------+<br />
+|    database_name    |<br />
++---------------------+<br />
+| balthazar_r         |<br />
+| baudouindlv         |<br />
+| berenice            |<br />
+| cgrandclaude        |<br />
+| cjdidi              |<br />
+| default             |<br />
+| eya_gheyouche       |<br />
+| gudronlauret        |<br />
+| gugulpb             |<br />
+| ilyass_bourkaik     |<br />
+| information_schema  |<br />
+| jbenayad            |<br />
+| jcrecel             |<br />
+| llecomte            |<br />
+| m_abatti            |<br />
+| ma_baseismail       |<br />
+| marieblein          |<br />
+| mhatoum             |<br />
+| ninon               |<br />
+| rbocchini           |<br />
+| rbouderghouma       |<br />
+| revillon            |<br />
+| sghlouci            |<br />
+| spiquet             |<br />
+| svassent            |<br />
+| sys                 |<br />
+| temp                |<br />
+| vaihau_williamu     |<br />
+| wangye              |<br />
+| yang_chen           |<br />
+| ymaassouli          |<br />
++---------------------+<b /r>
+31 rows selected (0.215 seconds)<br />
 
 * Creating a database : `create database if not exists cmauvezin;`
 > trace : (when using `show databases;`)<\br>
