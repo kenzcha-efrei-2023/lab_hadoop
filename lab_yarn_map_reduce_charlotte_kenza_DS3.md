@@ -9,7 +9,7 @@
 *1.2*
 
 - Executing the command :
-`yarn jar/usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar` 
+`yarn jar /usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar` 
     will give the output :
 
     >   An example program must be given as the first argument.
@@ -37,7 +37,7 @@
   <br />wordmedian: A map/reduce program that counts the median length of the words in the input files.
   <br />wordstandarddeviation: A map/reduce program that counts the standard deviation of the length of the words in the input files.
   
- - executing `yarn jar /usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar\wordcount`
+ - executing `yarn jar /usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount`
     
     will give the output  :
     
@@ -47,142 +47,61 @@
   then `hdfs dfs -ls out` give the following result :
   
     >Found 2 items <br />                                                                                                                                                                         
-    -rw-r--r--   3 k.tazi k.tazi          0 2021-09-15 15:02 out/_SUCCESS<br />                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-    -rw-r--r--   3 k.tazi k.tazi     129593 2021-09-15 15:02 out/part-r-00000<br />
+    Found 2 items
+-rw-r--r--   3 c.mauvezin c.mauvezin          0 2021-09-30 14:49 out/_SUCCESS
+-rw-r--r--   3 c.mauvezin c.mauvezin     129593 2021-09-30 14:49 out/part-r-00000
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-- executing `hdfs dfs -cat ./out/part-r-00000 | tail -n 20`
-    >“your	2<br />
-     “‘Are	1<br />
-     “‘Boy,	1<br />
-     “‘Do	3<br />
-     “‘Enter,’	1<br />
-     “‘Excellent	1<br />
-    “‘Frankenstein!	1<br />
-    “‘Great	1<br />
-    “‘Heaven	1<br />
-    “‘Hideous	1<br />
-    “‘How	1<br />
-    “‘I	1<br />
-    “‘It	1<br />
-    “‘May	1<br />
-    “‘Near	1<br />
-    “‘No,	1<br />
-    “‘No;	1<br />
-    “‘That	1<br />
-    “‘They	1<br />
-    “‘Where	1     <br />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+- executing `hdfs dfs -cat ./out/part-r-00000 | tail -n 10`
+    >“‘How   1
+    “‘I     1
+    “‘It    1
+    “‘May   1
+    “‘Near  1
+    “‘No,   1
+    “‘No;   1
+    “‘That  1
+    “‘They  1
+    “‘Where 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 
 *1.3*
 
 - `yarn jar /usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku sudoku.dta`
 
-    > Solving sudoku.dta<br />
-8 5 1 3 9 2 6 4 7<br />
-4 3 2 6 7 8 1 9 5<br />
-7 9 6 5 1 4 3 8 2<br />
-6 1 4 8 2 3 7 5 9<br />
-5 7 8 9 6 1 4 2 3<br />
-3 2 9 4 5 7 8 1 6<br />
-9 4 7 2 8 6 5 3 1<br />
-1 8 5 7 3 9 2 6 4<br />
-2 6 3 1 4 5 9 7 8<br />
+    > Solving sudoku.dta
+8 5 1 3 9 2 6 4 7
+4 3 2 6 7 8 1 9 5
+7 9 6 5 1 4 3 8 2
+6 1 4 8 2 3 7 5 9
+5 7 8 9 6 1 4 2 3
+3 2 9 4 5 7 8 1 6
+9 4 7 2 8 6 5 3 1
+1 8 5 7 3 9 2 6 4
+2 6 3 1 4 5 9 7 8
 Found 1 solutions
 
 -  `yarn  jar  /usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000`
 
     \[...\]
 
-    >Job Finished in 25.559 seconds<br />
-Estimated value of Pi is 3.14159155000000000000
-  `hdfs dfs -ls /user/k.tazi/data/10GB-sort-input`
-    >Found 51 items<br />
--rw-r--r--   3 k.tazi k.tazi          0 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/_SUCCESS<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00000<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00001<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00002<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00003<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00004<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00005<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00006<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00007<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00008<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00009<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00010<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00011<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00012<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00013<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00014<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00015<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00016<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00017<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00018<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00019<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00020<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00021<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00022<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00023<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00024<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00025<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00026<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00027<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00028<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00029<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00030<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00031<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00032<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00033<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00034<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00035<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00036<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00037<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00038<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00039<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00040<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00041<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00042<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00043<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00044<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00045<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00046<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00047<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00048<br />
--rw-r--r--   3 k.tazi k.tazi  200000000 2021-09-15 15:45 /user/k.tazi/data/10GB-sort-input/part-m-00049<br />
+    >Job Finished in 28.269 seconds
+Estimated value of Pi is 3.14159239750000000000
+  `hdfs dfs -ls data/10GB-sort-input`
+    >Found 3 items
+-rw-r--r--   3 c.mauvezin c.mauvezin          0 2021-09-28 14:52 data/10GB-sort-input/_SUCCESS
+-rw-r--r--   3 c.mauvezin c.mauvezin 5000000000 2021-09-28 14:52 data/10GB-sort-input/part-m-00000
+-rw-r--r--   3 c.mauvezin c.mauvezin 5000000000 2021-09-28 14:52 data/10GB-sort-input/part-m-00001
 
-- `yarn  jar /usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /user/k.tazi/data/10GB-sort-input  /user/k.tazi/data/10GB-sort-output`
+- `yarn  jar /usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /user/c.mauvezin/data/10GB-sort-input  /user/c.mauvezin/data/10GB-sort-output`
 
-    `hdfs dfs -ls /user/k.tazi/data/10GB-sort-output`
-    > Found 27 items <br />
--rw-r--r--   1 k.tazi k.tazi          0 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/_SUCCESS <br />
--rw-r--r--  10 k.tazi k.tazi        264 2021-09-15 15:58 /user/k.tazi/data/10GB-sort-output/_partition.lst <br />
--rw-r--r--   1 k.tazi k.tazi  404195200 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/part-r-00000 <br />
--rw-r--r--   1 k.tazi k.tazi  403679700 2021-09-15 15:59 /user/k.tazi/data/10GB-sort-output/part-r-00001 <br />
--rw-r--r--   1 k.tazi k.tazi  404552800 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/part-r-00002 <br />
--rw-r--r--   1 k.tazi k.tazi  395536200 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/part-r-00003 <br />
--rw-r--r--   1 k.tazi k.tazi  397973800 2021-09-15 15:59 /user/k.tazi/data/10GB-sort-output/part-r-00004 <br />
--rw-r--r--   1 k.tazi k.tazi  410940300 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/part-r-00005 <br />
--rw-r--r--   1 k.tazi k.tazi  399506300 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/part-r-00006 <br />
--rw-r--r--   1 k.tazi k.tazi  393165000 2021-09-15 15:59 /user/k.tazi/data/10GB-sort-output/part-r-00007 <br />
--rw-r--r--   1 k.tazi k.tazi  407421200 2021-09-15 15:59 /user/k.tazi/data/10GB-sort-output/part-r-00008 <br />
--rw-r--r--   1 k.tazi k.tazi  401308500 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/part-r-00009 <br />
--rw-r--r--   1 k.tazi k.tazi  404466400 2021-09-15 15:59 /user/k.tazi/data/10GB-sort-output/part-r-00010 <br />
--rw-r--r--   1 k.tazi k.tazi  396547000 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/part-r-00011 <br />
--rw-r--r--   1 k.tazi k.tazi  407226400 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/part-r-00012 <br />
--rw-r--r--   1 k.tazi k.tazi  395159500 2021-09-15 15:59 /user/k.tazi/data/10GB-sort-output/part-r-00013 <br />
--rw-r--r--   1 k.tazi k.tazi  389155600 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/part-r-00014 <br />
--rw-r--r--   1 k.tazi k.tazi  402980900 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/part-r-00015 <br />
--rw-r--r--   1 k.tazi k.tazi  397415300 2021-09-15 15:59 /user/k.tazi/data/10GB-sort-output/part-r-00016 <br />
--rw-r--r--   1 k.tazi k.tazi  396962200 2021-09-15 15:59 /user/k.tazi/data/10GB-sort-output/part-r-00017 <br />
--rw-r--r--   1 k.tazi k.tazi  405000200 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/part-r-00018 <br />
--rw-r--r--   1 k.tazi k.tazi  401122800 2021-09-15 15:59 /user/k.tazi/data/10GB-sort-output/part-r-00019 <br />
--rw-r--r--   1 k.tazi k.tazi  394299700 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/part-r-00020 <br />
--rw-r--r--   1 k.tazi k.tazi  393609500 2021-09-15 15:59 /user/k.tazi/data/10GB-sort-output/part-r-00021 <br />
--rw-r--r--   1 k.tazi k.tazi  396235400 2021-09-15 15:59 /user/k.tazi/data/10GB-sort-output/part-r-00022 <br />
--rw-r--r--   1 k.tazi k.tazi  405622100 2021-09-15 15:59 /user/k.tazi/data/10GB-sort-output/part-r-00023 <br />
--rw-r--r--   1 k.tazi k.tazi  395918000 2021-09-15 16:00 /user/k.tazi/data/10GB-sort-output/part-r-00024 <br />
+    `hdfs dfs -ls data/10GB-sort-output`
+    > Found 3 items
+-rw-r--r--   1 c.mauvezin c.mauvezin           0 2021-09-28 15:07 data/10GB-sort-output/_SUCCESS
+-rw-r--r--  10 c.mauvezin c.mauvezin           0 2021-09-28 15:02 data/10GB-sort-output/_partition.lst
+-rw-r--r--   1 c.mauvezin c.mauvezin 10000000000 2021-09-28 15:07 data/10GB-sort-output/part-r-00000
 
-- `yarn jar /usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /user/k.tazi/data/10GB-sort-output /user/k.tazi/data/10GB-sort-validate`
-   `hdfs dfs -cat /user/k.tazi/data/10GB-sort-validate/part-r-00000`
-    >checksum	2fafbaf537afd49
+- `yarn jar /usr/odp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /user/c.mauvezin/data/10GB-sort-output /user/c.mauvezin/data/10GB-sort-validate`
+   `hdfs dfs -cat data/10GB-sort-validate/part-r-00000`
+    >checksum        2fafbaf537afd49
 
 *2.3.1*
 
