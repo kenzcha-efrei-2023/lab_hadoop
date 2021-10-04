@@ -265,27 +265,28 @@ Closing: 0: jdbc:hive2://hadoop-master01.efrei.online:2181,hadoop-master02.efrei
 ### 1.2 Create tables
 
 * Create an external table called trees_external
-> INFO  : Starting task [Stage-0:DDL] in serial mode
-INFO  : Completed executing command(queryId=hive_20211004154344_a1fd3164-798b-4c54-8d92-511680c476e6); Time taken: 0.096 seconds
-INFO  : OK
-INFO  : Concurrency mode is disabled, not creating a lock manager
-No rows affected (0.145 seconds)
-0: jdbc:hive2://hadoop-master01.efrei.online:> show tables ;
-INFO  : Compiling command(queryId=hive_20211004154453_12dbca55-42a9-45ab-bc94-5a17e698ca2d): show tablesINFO  : Concurrency mode is disabled, not creating a lock manager
-INFO  : Semantic Analysis Completed (retrial = false)
-INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:tab_name, type:string, comment:from deserializer)], properties:null)
-INFO  : Completed compiling command(queryId=hive_20211004154453_12dbca55-42a9-45ab-bc94-5a17e698ca2d); Time taken: 0.033 seconds
-INFO  : Concurrency mode is disabled, not creating a lock manager
-INFO  : Executing command(queryId=hive_20211004154453_12dbca55-42a9-45ab-bc94-5a17e698ca2d): show tablesINFO  : Starting task [Stage-0:DDL] in serial mode
-INFO  : Completed executing command(queryId=hive_20211004154453_12dbca55-42a9-45ab-bc94-5a17e698ca2d); Time taken: 0.022 seconds
-INFO  : OK
-INFO  : Concurrency mode is disabled, not creating a lock manager
-+-----------------+
-|    tab_name     |
-+-----------------+
-| trees_external  |
-+-----------------+
-1 row selected (0.102 seconds)
+> Querie : `create external table trees_external(geopts struct<lon:FLOAT,lat:FLOAT> ,arr int,gnr STRING,esp STRING,fam STRING,ann INT,hau FLOAT,cir FLOAT,adr STRING,nomcomm STRING,var STRING,objID int,nomEV STRING) ;`<br />
+> INFO  : Starting task [Stage-0:DDL] in serial mode<br />
+INFO  : Completed executing command(queryId=hive_20211004154344_a1fd3164-798b-4c54-8d92-511680c476e6); Time taken: 0.096 seconds<br />
+INFO  : OK<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+No rows affected (0.145 seconds)<br />
+0: jdbc:hive2://hadoop-master01.efrei.online:> show tables ;<br />
+INFO  : Compiling command(queryId=hive_20211004154453_12dbca55-42a9-45ab-bc94-5a17e698ca2d): show tablesINFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Semantic Analysis Completed (retrial = false)<br />
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:tab_name, type:string, comment:from deserializer)], properties:null)<br />
+INFO  : Completed compiling command(queryId=hive_20211004154453_12dbca55-42a9-45ab-bc94-5a17e698ca2d); Time taken: 0.033 seconds<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Executing command(queryId=hive_20211004154453_12dbca55-42a9-45ab-bc94-5a17e698ca2d): show tablesINFO  : Starting task [Stage-0:DDL] in serial mode<br />
+INFO  : Completed executing command(queryId=hive_20211004154453_12dbca55-42a9-45ab-bc94-5a17e698ca2d); Time taken: 0.022 seconds<br />
+INFO  : OK<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
++-----------------+<br />
+|    tab_name     |<br />
++-----------------+<br />
+| trees_external  |<br />
++-----------------+<br />
+1 row selected (0.102 seconds)<br />
 
 * Create an internal table called trees_internal
 
