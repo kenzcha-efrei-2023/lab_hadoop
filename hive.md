@@ -265,7 +265,21 @@ Closing: 0: jdbc:hive2://hadoop-master01.efrei.online:2181,hadoop-master02.efrei
 ### 1.2 Create tables
 
 * Create an external table called trees_external
-> Querie : `create external table trees_external(geopts struct<lon:FLOAT,lat:FLOAT> ,arr int,gnr STRING,esp STRING,fam STRING,ann INT,hau FLOAT,cir FLOAT,adr STRING,nomcomm STRING,var STRING,objID int,nomEV STRING) ;`<br />
+> Querie : `create external table trees_internal(<br />
+geopts struct<lon:FLOAT,lat:FLOAT> ,<br />
+arr int,<br />
+gnr STRING,<br />
+esp STRING,<br />
+fam STRING,<br />
+ann INT,<br />
+hau FLOAT,<br />
+cir FLOAT,<br />
+adr STRING,<br />
+nomcomm STRING,<br />
+var STRING,<br />
+objID int,<br />
+nomEV STRING<br />
+) ;`<br />
 > INFO  : Starting task [Stage-0:DDL] in serial mode<br />
 INFO  : Completed executing command(queryId=hive_20211004154344_a1fd3164-798b-4c54-8d92-511680c476e6); Time taken: 0.096 seconds<br />
 INFO  : OK<br />
@@ -289,7 +303,46 @@ INFO  : Concurrency mode is disabled, not creating a lock manager<br />
 1 row selected (0.102 seconds)<br />
 
 * Create an internal table called trees_internal
-
+> Querie : `create table trees_internal(<br />
+geopts struct<lon:FLOAT,lat:FLOAT> ,<br />
+arr int,<br />
+gnr STRING,<br />
+esp STRING,<br />
+fam STRING,<br />
+ann INT,<br />
+hau FLOAT,<br />
+cir FLOAT,<br />
+adr STRING,<br />
+nomcomm STRING,<br />
+var STRING,<br />
+objID int,<br />
+nomEV STRING<br />
+) ;`<br />
+> INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Semantic Analysis Completed (retrial = false)<br />
+INFO  : Returning Hive schema: Schema(fieldSchemas:null, properties:null)<br />
+INFO  : Completed compiling command(queryId=hive_20211004205222_311838bc-728e-4dc3-955a-35152d2a64a0); Time taken: 0.103 seconds<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Executing command(queryId=hive_20211004205222_311838bc-728e-4dc3-955a-35152d2a64a0): create table trees_internal(<br />
+geopts struct<lon:FLOAT,lat:FLOAT> ,<br />
+arr int,<br />
+gnr STRING,<br />
+esp STRING,<br />
+fam STRING,<br />
+ann INT,<br />
+hau FLOAT,<br />
+cir FLOAT,<br />
+adr STRING,<br />
+nomcomm STRING,<br />
+var STRING,<br />
+objID int,<br />
+nomEV STRING<br />
+)<br />
+INFO  : Starting task [Stage-0:DDL] in serial mode<br />
+INFO  : Completed executing command(queryId=hive_20211004205222_311838bc-728e-4dc3-955a-35152d2a64a0); Time taken: 0.106 seconds<br />
+INFO  : OK<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+No rows affected (0.271 seconds)<br />
 
 * Import to the internal table using the external table
 
