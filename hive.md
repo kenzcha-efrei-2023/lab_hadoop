@@ -262,4 +262,67 @@ No rows affected (0.294 seconds)<br />
 Closing: 0: jdbc:hive2://hadoop-master01.efrei.online:2181,hadoop-master02.efrei.online:2181,hadoop-master03.efrei.online:2181/default;httpPath=cliservice;principal=hive/_HOST@EFREI.ONLINE;serviceDiscoveryMode=zooKeeper;ssl=true;transportMode=http;zooKeeperNamespace=hiveserver2<br />
 21/09/30 18:32:49 [shutdown-hook-0]: INFO jdbc.HiveConnection: Could not connect to the server. Retrying one more time.<br />
 
-### Create tables
+### 1.2 Create tables
+
+* Create an external table called trees_external
+> INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20211004154344_a1fd3164-798b-4c54-8d92-511680c476e6); Time taken: 0.096 seconds
+INFO  : OK
+INFO  : Concurrency mode is disabled, not creating a lock manager
+No rows affected (0.145 seconds)
+0: jdbc:hive2://hadoop-master01.efrei.online:> show tables ;
+INFO  : Compiling command(queryId=hive_20211004154453_12dbca55-42a9-45ab-bc94-5a17e698ca2d): show tablesINFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:tab_name, type:string, comment:from deserializer)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20211004154453_12dbca55-42a9-45ab-bc94-5a17e698ca2d); Time taken: 0.033 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hive_20211004154453_12dbca55-42a9-45ab-bc94-5a17e698ca2d): show tablesINFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20211004154453_12dbca55-42a9-45ab-bc94-5a17e698ca2d); Time taken: 0.022 seconds
+INFO  : OK
+INFO  : Concurrency mode is disabled, not creating a lock manager
++-----------------+
+|    tab_name     |
++-----------------+
+| trees_external  |
++-----------------+
+1 row selected (0.102 seconds)
+
+* Create an internal table called trees_internal
+
+
+* Import to the internal table using the external table
+
+
+* Verify that each table got 
+
+
+### 1.3 Create queries 
+
+* displays the list of distinct containing trees
+> Querie :
+> Trace :
+
+* displays the list of different species trees
+> Querie :
+> Trace :
+
+* the number of trees of each kind
+> Querie :
+> Trace :
+
+* calculates the height of the tallest tree of each kind
+> Querie :
+> Trace :
+
+* sort the trees height from smallest to largest
+> Querie :
+> Trace :
+
+* displays the district where the oldest tree is
+> Querie :
+> Trace :
+
+* display the district tat contains the most trees
+> Querie :
+> Trace :
+
