@@ -264,7 +264,7 @@ Closing: 0: jdbc:hive2://hadoop-master01.efrei.online:2181,hadoop-master02.efrei
 
 ### 1.2 Create tables
 
-* Create an external table called trees_external
+* Create an external table called trees_external<br />
 > Querie : `create external table trees_internal(
 geopts STRING ,
 arr int,
@@ -280,7 +280,7 @@ var STRING,
 objID int,
 nomEV STRING
 ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ';' ;`
-> 2nd Querie : `load data inpath 'hdfs://efrei/user/c.mauvezin/dt' overwrite into table trees_external ;`
+> 2nd Querie : `load data inpath 'hdfs://efrei/user/c.mauvezin/dt' overwrite into table trees_external ;`<br />
 > Trace : <br />
 INFO  : Starting task [Stage-0:DDL] in serial mode<br />
 INFO  : Completed executing command(queryId=hive_20211004154344_a1fd3164-798b-4c54-8d92-511680c476e6); Time taken: 0.096 seconds<br />
@@ -304,7 +304,7 @@ INFO  : Concurrency mode is disabled, not creating a lock manager<br />
 +-----------------+<br />
 1 row selected (0.102 seconds)<br />
 
-* Create an internal table called trees_internal
+* Create an internal table called trees_internal<br />
 > Querie : `create table trees_internal(
 geopts struct<lon:FLOAT,lat:FLOAT> ,
 arr int,
@@ -347,28 +347,28 @@ INFO  : OK<br />
 INFO  : Concurrency mode is disabled, not creating a lock manager<br />
 No rows affected (0.271 seconds)<br />
 
-* Import to the internal table using the external table
-> Querie : `insert overwrite table trees_internal select * from trees_external ;`
+* Import to the internal table using the external table<br />
+> Querie : `insert overwrite table trees_internal select * from trees_external ;`<br />
 > Trace : <br />
-INFO  : Compiling command(queryId=hive_20211005150733_192fcdcb-ec06-4fde-b5ec-ea2ddad9391f): insert overwrite table trees_internal select * from trees_external
-INFO  : Concurrency mode is disabled, not creating a lock manager
-INFO  : Semantic Analysis Completed (retrial = false)
-INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_col0, type:varchar(50), comment:null), FieldSchema(name:_col1, type:int, comment:null), FieldSchema(name:_col2, type:varchar(50), comment:null), FieldSchema(name:_col3, type:varchar(50), comment:null), FieldSchema(name:_col4, type:varchar(50), comment:null), FieldSchema(name:_col5, type:int, comment:null), FieldSchema(name:_col6, type:float, comment:null), FieldSchema(name:_col7, type:float, comment:null), FieldSchema(name:_col8, type:varchar(50), comment:null), FieldSchema(name:_col9, type:varchar(50), comment:null), FieldSchema(name:_col10, type:varchar(50), comment:null), FieldSchema(name:_col11, type:int, comment:null), FieldSchema(name:_col12, type:varchar(50), comment:null)], properties:null)
-INFO  : Completed compiling command(queryId=hive_20211005150733_192fcdcb-ec06-4fde-b5ec-ea2ddad9391f); Time taken: 0.324 seconds
-INFO  : Concurrency mode is disabled, not creating a lock manager
-INFO  : Executing command(queryId=hive_20211005150733_192fcdcb-ec06-4fde-b5ec-ea2ddad9391f): insert overwrite table trees_internal select * from trees_external
-INFO  : Query ID = hive_20211005150733_192fcdcb-ec06-4fde-b5ec-ea2ddad9391f
-INFO  : Total jobs = 1
-INFO  : Launching Job 1 out of 1
-INFO  : Starting task [Stage-1:MAPRED] in serial mode
-INFO  : Subscribed to counters: [] for queryId: hive_20211005150733_192fcdcb-ec06-4fde-b5ec-ea2ddad9391f
-INFO  : Tez session hasn't been created yet. Opening session
-ERROR : Failed to execute tez graph.
-org.apache.tez.dag.api.SessionNotRunning: TezSession has already shutdown. Application application_1630864376208_2265 failed 2 times due to AM Container for appattempt_1630864376208_2265_000002 exited with  exitCode: 1
+INFO  : Compiling command(queryId=hive_20211005150733_192fcdcb-ec06-4fde-b5ec-ea2ddad9391f): insert overwrite table trees_internal select * from trees_external<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Semantic Analysis Completed (retrial = false)<br />
+INFO  : Returning Hive schema: Schema(fieldSchemas:[FieldSchema(name:_col0, type:varchar(50), comment:null), FieldSchema(name:_col1, type:int, comment:null), FieldSchema(name:_col2, type:varchar(50), comment:null), FieldSchema(name:_col3, type:varchar(50), comment:null), FieldSchema(name:_col4, type:varchar(50), comment:null), FieldSchema(name:_col5, type:int, comment:null), FieldSchema(name:_col6, type:float, comment:null), FieldSchema(name:_col7, type:float, comment:null), FieldSchema(name:_col8, type:varchar(50), comment:null), FieldSchema(name:_col9, type:varchar(50), comment:null), FieldSchema(name:_col10, type:varchar(50), comment:null), FieldSchema(name:_col11, type:int, comment:null), FieldSchema(name:_col12, type:varchar(50), comment:null)], properties:null)<br />
+INFO  : Completed compiling command(queryId=hive_20211005150733_192fcdcb-ec06-4fde-b5ec-ea2ddad9391f); Time taken: 0.324 seconds<br />
+INFO  : Concurrency mode is disabled, not creating a lock manager<br />
+INFO  : Executing command(queryId=hive_20211005150733_192fcdcb-ec06-4fde-b5ec-ea2ddad9391f): insert overwrite table trees_internal select * from trees_external<br />
+INFO  : Query ID = hive_20211005150733_192fcdcb-ec06-4fde-b5ec-ea2ddad9391f<br />
+INFO  : Total jobs = 1<br />
+INFO  : Launching Job 1 out of 1<br />
+INFO  : Starting task [Stage-1:MAPRED] in serial mode<br />
+INFO  : Subscribed to counters: [] for queryId: hive_20211005150733_192fcdcb-ec06-4fde-b5ec-ea2ddad9391f<br />
+INFO  : Tez session hasn't been created yet. Opening session<br />
+ERROR : Failed to execute tez graph.<br />
+org.apache.tez.dag.api.SessionNotRunning: TezSession has already shutdown. Application application_1630864376208_2265 failed 2 times due to AM Container for appattempt_1630864376208_2265_000002 exited with  exitCode: 1<br />
 
-* Verify that each table got 
-> `select * from trees_internal ;`
-> Trance : <br />
+* Verify that each table got <br />
+> `select * from trees_internal ;`<br />
+> Trace : <br />
 > +---------------------------------+--------------------------------+-----------------------+------------------------+-------------------------+----------------------------------+-------------------------+-------------------------------+----------------------------------------------------+----------------------------+-------------------------+--------------------------+----------------------------------------------------+<br />
 |     trees_internal.geopoint     | trees_internal.arrondissement  | trees_internal.genre  | trees_internal.espece  | trees_internal.famille  | trees_internal.annee_plantation  | trees_internal.hauteur  | trees_internal.circonference  |               trees_internal.adresse               | trees_internal.nom_commun  | trees_internal.variete  | trees_internal.objectid  |               trees_internal.nom_ev                |<br />
 +---------------------------------+--------------------------------+-----------------------+------------------------+-------------------------+----------------------------------+-------------------------+-------------------------------+----------------------------------------------------+----------------------------+-------------------------+--------------------------+----------------------------------------------------+<br />
