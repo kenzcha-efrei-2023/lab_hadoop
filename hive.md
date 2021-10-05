@@ -474,9 +474,9 @@ org.apache.tez.dag.api.SessionNotRunning: TezSession has already shutdown. Appli
 
 ### 1.3 Create queries 
 
-* displays the list of district containing trees
-> Querie : `select distinct arrondissement from trees_internal ;`
-> Trace :
+* displays the list of district containing trees<br />
+> Querie : `select distinct arrondissement from trees_internal ;`<br />
+> Trace :<br />
 +-----------------+<br />
 | arrondissement  |<br />
 +-----------------+<br />
@@ -500,9 +500,9 @@ org.apache.tez.dag.api.SessionNotRunning: TezSession has already shutdown. Appli
 +-----------------+<br />
 17 rows selected (0.364 seconds)
 
-* displays the list of different species trees
-> Querie : `select distinct espece from trees_internal ;`
-> Trace :
+* displays the list of different species trees<br />
+> Querie : `select distinct espece from trees_internal ;`<br />
+> Trace :<br />
 +-----------------+<br />
 |     espece      |<br />
 +-----------------+<br />
@@ -554,9 +554,9 @@ org.apache.tez.dag.api.SessionNotRunning: TezSession has already shutdown. Appli
 +-----------------+<br />
 45 rows selected (0.262 seconds)<br />
 
-* the number of trees of each kind
-> Querie : `select espece, count(espece) from trees_internal group by espece ;`
-> Trace :
+* the number of trees of each kind<br />
+> Querie : `select espece, count(espece) from trees_internal group by espece ;`<br />
+> Trace :<br />
 +-----------------+-----------------+<br />
 |     espece      |  count(espece)  |<br />
 +-----------------+-----------------+<br />
@@ -607,9 +607,9 @@ org.apache.tez.dag.api.SessionNotRunning: TezSession has already shutdown. Appli
 | opalus          | 1               |<br />
 +-----------------+-----------------+<br />
 
-* calculates the height of the tallest tree of each kind
-> Querie : `select max(hauteur), espece from trees_internal group by hauteur ;`
-> Trace :
+* calculates the height of the tallest tree of each kind<br />
+> Querie : `select max(hauteur), espece from trees_internal group by hauteur ;`<br />
+> Trace :<br />
 +----------+-----------------+<br />
 | hauteur  |     espece      |<br />
 +----------+-----------------+<br />
@@ -660,9 +660,9 @@ org.apache.tez.dag.api.SessionNotRunning: TezSession has already shutdown. Appli
 | 15.0     | opalus          |<br />
 +----------+-----------------+<br />
 
-* sort the trees height from smallest to largest
-> Querie : `select hauteur, espece from trees_internal order by hauteur ;`
-> Trace :
+* sort the trees height from smallest to largest<br />
+> Querie : `select hauteur, espece from trees_internal order by hauteur ;`<br />
+> Trace :<br />
 +----------+-----------------+<br />
 | hauteur  |     espece      |<br />
 +----------+-----------------+<br />
@@ -766,18 +766,18 @@ org.apache.tez.dag.api.SessionNotRunning: TezSession has already shutdown. Appli
 +----------+-----------------+<br />
 
 
-* displays the district where the oldest tree is
-> Querie : `select arrondissement, annee_plantation from trees_internal where (annee_plantation = min(annee_plantation)) ; `
-> Trace :
+* displays the district where the oldest tree is<br />
+> Querie : `select arrondissement, annee_plantation from trees_internal where (annee_plantation = min(annee_plantation)) ; `<br />
+> Trace :<br />
 +-----------------+-------------------+<br />
 | arrondissement  | annee_plantation  |<br />
 +-----------------+-------------------+<br />
 | 5               | 1601              |<br />
 +-----------------+-------------------+<br />
 
-* display the district that contains the most trees
-> Querie : ` select arrondissement, espece from (select arrondissement, espece, count(arrondissement) as va from internal_trees group by arrondissement order by count(arrondissement) desc) as nb limit 1`
-> Trace :
+* display the district that contains the most trees<br />
+> Querie : ` select arrondissement, espece from (select arrondissement, espece, count(arrondissement) as va from internal_trees group by arrondissement order by count(arrondissement) desc) as nb limit 1`<br />
+> Trace :<br />
 +-----------------+-----------------+<br />
 | arrondissement  |     espece      |<br />
 +-----------------+-----------------+<br />
