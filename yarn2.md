@@ -394,3 +394,195 @@ Output :
  ulmoides	12.0<br />
  virginiana	14.0<br />
  x acerifolia	45.0<br />
+
+sorted heights
+
+mapper :
+```
+public class HeightMapper extends Mapper<Object, Text, FloatWritable, Text> {
+    public void map(Object key, Text value, Mapper.Context context)
+            throws IOException, InterruptedException {
+        float h = value.toString().split(";")[6].length() > 0 ?
+                Float.parseFloat(value.toString().split(";")[6]) :
+                (float)0.0;
+        context.write(new FloatWritable(h), new Text("placeholder"));
+    }
+}
+```
+reducer :
+
+The keys are already sorted ! So we only redirect them !
+```
+public class SimpleReducer  extends Reducer<FloatWritable, Text, FloatWritable, Text> {
+    public void reduce(FloatWritable key, Iterable<Text> values, Context context)
+            throws IOException, InterruptedException {
+        context.write(key, new Text("placeholder"));
+    }
+}
+```
+job :
+```
+public class SortHeigth {
+    public static void main(String[] args) throws Exception {
+        Configuration conf = new Configuration();
+        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+        if (otherArgs.length < 2) {
+            System.err.println("Usage: srtheight <in> [<in>...] <out>");
+            System.exit(2);
+        }
+        Job job = Job.getInstance(conf, "srtheight");
+        job.setJarByClass(SortHeigth.class);
+        job.setMapperClass(HeightMapper.class);
+        job.setCombinerClass(SimpleReducer.class);
+        job.setReducerClass(SimpleReducer.class);
+        job.setOutputKeyClass(FloatWritable.class);
+        job.setOutputValueClass(Text.class);
+        for (int i = 0; i < otherArgs.length - 1; ++i) {
+            FileInputFormat.addInputPath(job, new Path(otherArgs[i]));
+        }
+        FileOutputFormat.setOutputPath(job,
+                new Path(otherArgs[otherArgs.length - 1]));
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
+    }
+}
+
+```
+
+>0.0	placeholder<br />
+ 2.0	placeholder<br />
+ 5.0	placeholder<br />
+ 6.0	placeholder<br />
+ 9.0	placeholder<br />
+ 10.0	placeholder<br />
+ 11.0	placeholder<br />
+ 12.0	placeholder<br />
+ 13.0	placeholder<br />
+ 14.0	placeholder<br />
+ 15.0	placeholder<br />
+ 16.0	placeholder<br />
+ 18.0	placeholder<br />
+ 20.0	placeholder<br />
+ 22.0	placeholder<br />
+ 23.0	placeholder<br />
+ 25.0	placeholder<br />
+ 26.0	placeholder<br />
+ 27.0	placeholder<br />
+ 28.0	placeholder<br />
+ 30.0	placeholder<br />
+ 31.0	placeholder<br />
+ 32.0	placeholder<br />
+ 33.0	placeholder<br />
+ 34.0	placeholder<br />
+ 35.0	placeholder<br />
+ 40.0	placeholder<br />
+ 42.0	placeholder<br />
+ 45.0	placeholder<br />
+
+district containing oldest tree
+
+writable :
+```
+public class ArrYearWritable implements Writable {
+
+    public int getYear() {
+        return year;
+    }
+
+    public int getArr() {
+        return arr;
+    }
+
+    private int year;
+    private int arr;
+
+    public ArrYearWritable(int year, int arr){
+        this.arr = arr;
+        this.year = year;
+    }
+    public ArrYearWritable(){
+        this.arr = 0;
+        this.year = 0;
+    }
+
+    @Override
+    public void write(DataOutput dataOutput) throws IOException {
+        dataOutput.writeInt(arr);
+        dataOutput.writeInt(year);
+    }
+
+    @Override
+    public void readFields(DataInput dataInput) throws IOException {
+        arr = dataInput.readInt();
+        year = dataInput.readInt();
+    }
+
+    @Override
+    public String toString() {
+        return "year=" + year +
+                ", arr=" + arr;
+    }
+}
+```
+
+mapper :
+```
+public class OldestMapper  extends Mapper<Object, Text, Text, ArrYearWritable> {
+
+    public void map(Object key, Text value, Mapper.Context context)
+            throws IOException, InterruptedException {
+        int ar = Integer.parseInt(value.toString().split(";")[1]);
+        int year = value.toString().split(";")[5].length() > 0 ?
+                Integer.parseInt(value.toString().split(";")[5]) :
+                Integer.MAX_VALUE;
+
+
+        context.write(new Text("placeholder"), new ArrYearWritable(year, ar));
+    }
+}
+```
+reducer :
+```
+public class OldestReducer extends Reducer<Text, ArrYearWritable, Text, ArrYearWritable> {
+    public void reduce(Text key, Iterable<ArrYearWritable> values, Context context)
+            throws IOException, InterruptedException {
+        int min_year = Integer.MAX_VALUE;
+        int arr = 0;
+        for (ArrYearWritable val : values) {
+            if (val.getYear() < min_year){
+                min_year = val.getYear();
+                arr = val.getArr();
+            }
+        }
+        context.write(key, new ArrYearWritable(min_year, arr));
+    }
+}
+```
+job :
+```
+public class OldestTrArr {
+    public static void main(String[] args) throws Exception {
+        Configuration conf = new Configuration();
+        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+        if (otherArgs.length < 2) {
+            System.err.println("Usage: oldtrarr <in> [<in>...] <out>");
+            System.exit(2);
+        }
+        Job job = Job.getInstance(conf, "oldtrarr");
+        job.setJarByClass(OldestTrArr.class);
+        job.setMapperClass(OldestMapper.class);
+        job.setCombinerClass(OldestReducer.class);
+        job.setReducerClass(OldestReducer.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(ArrYearWritable.class);
+        for (int i = 0; i < otherArgs.length - 1; ++i) {
+            FileInputFormat.addInputPath(job, new Path(otherArgs[i]));
+        }
+        FileOutputFormat.setOutputPath(job,
+                new Path(otherArgs[otherArgs.length - 1]));
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
+    }
+}
+```
+output :
+>[k.tazi@hadoop-edge01 ~]$ hdfs dfs -cat oldarr2/part-r-00000 <br />
+ placeholder	year=1601, arr=5

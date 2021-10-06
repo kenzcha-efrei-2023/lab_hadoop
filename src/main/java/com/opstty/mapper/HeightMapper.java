@@ -1,21 +1,17 @@
 package com.opstty.mapper;
 
-import com.opstty.writtable.ArrYearWritable;
 import org.apache.hadoop.io.FloatWritable;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class ArrHeightMapper  extends Mapper<Object, Text, Text, FloatWritable>{
-
+public class HeightMapper extends Mapper<Object, Text, FloatWritable, Text> {
     public void map(Object key, Text value, Mapper.Context context)
             throws IOException, InterruptedException {
-        String tree = value.toString().split(";")[3];
         float h = value.toString().split(";")[6].length() > 0 ?
                 Float.parseFloat(value.toString().split(";")[6]) :
                 (float)0.0;
-        context.write(new Text(tree), new FloatWritable(h));
+        context.write(new FloatWritable(h), new Text("placeholder"));
     }
 }
