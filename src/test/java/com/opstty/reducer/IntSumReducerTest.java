@@ -31,6 +31,6 @@ public class IntSumReducerTest {
         IntWritable value = new IntWritable(1);
         Iterable<IntWritable> values = Arrays.asList(value, value, value);
         this.intSumReducer.reduce(new Text(key), values, this.context);
-        verify(this.context).write(new Text(key), new IntWritable(3));
+        verify(this.context).write(new Text(key+" "), new IntWritable(3));
     }
 }

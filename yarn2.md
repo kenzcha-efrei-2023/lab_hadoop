@@ -586,3 +586,172 @@ public class OldestTrArr {
 output :
 >[k.tazi@hadoop-edge01 ~]$ hdfs dfs -cat oldarr2/part-r-00000 <br />
  placeholder	year=1601, arr=5
+
+district containing most trees
+
+writtable :
+
+```
+public class ArrNbWritable implements Writable {
+    public int getNb() {
+        return nb;
+    }
+
+    public String getArr() {
+        return arr;
+    }
+
+    private int nb;
+    private String arr;
+
+    public ArrNbWritable(int nb, String arr){
+        this.arr = arr;
+        this.nb = nb;
+    }
+    public ArrNbWritable(){
+        this.arr = "";
+        this.nb = 0;
+    }
+
+    @Override
+    public void write(DataOutput dataOutput) throws IOException {
+        dataOutput.writeUTF(arr);
+        dataOutput.writeInt(nb);
+    }
+
+    @Override
+    public void readFields(DataInput dataInput) throws IOException {
+        arr = dataInput.readUTF();
+        nb = dataInput.readInt();
+    }
+
+    @Override
+    public String toString() {
+        return  Integer.toString(nb) + arr;
+    }
+}
+
+```
+
+mapper 1 :
+```
+public class ArrTreeMapper extends Mapper<Object, Text, Text, IntWritable> {
+
+    public void map(Object key, Text value, Context context)
+            throws IOException, InterruptedException {
+        String arrondissement = value.toString().split(";")[1];
+        context.write(new Text(arrondissement), new IntWritable(1));
+    }
+}
+```
+
+reducer 1 :
+
+Again, I recycled the IntSumReducer. I just added a " " after the key to make the parsing easier 
+
+mapper 2 :
+```
+public class ArrMaxMapper extends Mapper<Object, Text, Text, ArrNbWritable> {
+
+    public void map(Object key, Text value, Context context)
+            throws IOException, InterruptedException {
+        String arrondissement = value.toString().split(" ")[0];
+
+        String a = value.toString().split(" ")[value.toString().split(" ").length-1];
+        while (a.length()!= 0 && !Character.isDigit(a.charAt(0)))
+            a = a.substring(1);
+        int nb = Integer.parseInt(a);
+        context.write(new Text("placeholder"), new ArrNbWritable( nb, arrondissement));
+    }
+}
+```
+
+reducer 2 :
+
+```
+public class ArrMaxReducer  extends Reducer<Text, ArrNbWritable, Text, ArrNbWritable> {
+
+    public void reduce(Text key, Iterable<ArrNbWritable> values, Context context)
+            throws IOException, InterruptedException {
+        int max_nb = -1;
+        String arr = "";
+
+        for (ArrNbWritable val : values) {
+            if (val.getNb() > max_nb){
+                max_nb = val.getNb();
+                arr = val.getArr();
+            }
+        }
+        context.write(new Text("The arrondissement with the most trees "+arr), new ArrNbWritable(max_nb, arr));
+    }
+}
+```
+job :
+
+```
+public class MostArr {
+    public static void main(String[] args) throws Exception {
+        Configuration conf = new Configuration();
+        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+        if (otherArgs.length != 3) {
+            System.err.println("Usage: mostarr <in> <out1> <out2>");
+            System.exit(2);
+        }
+        Job job = Job.getInstance(conf, "mostarr");
+        job.setJarByClass(MostArr.class);
+        job.setMapperClass(ArrTreeMapper.class);
+        job.setCombinerClass(IntSumReducer.class);
+        job.setReducerClass(IntSumReducer.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+        job.waitForCompletion(true);
+        Configuration conf2 = new Configuration();
+        Job job2 = Job.getInstance(conf2, "mostarr2");
+        job2.setJarByClass(MostArr.class);
+        job2.setMapperClass(ArrMaxMapper.class);
+        job2.setCombinerClass(ArrMaxReducer.class);
+        job2.setReducerClass(ArrMaxReducer.class);
+        job2.setOutputKeyClass(Text.class);
+        job2.setOutputValueClass(ArrNbWritable.class);
+        FileInputFormat.addInputPath(job2, new Path(otherArgs[1]));
+        FileOutputFormat.setOutputPath(job2, new Path(otherArgs[2]));
+        System.exit(job2.waitForCompletion(true) ? 0 : 1);
+    }
+}
+```
+
+In the end, the AppDriver resembles to this :
+
+```
+public class AppDriver {
+    public static void main(String argv[]) {
+        int exitCode = -1;
+        ProgramDriver programDriver = new ProgramDriver();
+        try {
+            programDriver.addClass("mostarr", MostArr.class,
+                    "A map/reduce program that gives the arrondissement that has the most trees");
+            programDriver.addClass("oldarr", OldestTrArr.class,
+                    "A map/reduce program that gives the arrondissement that has the oldest tree");
+            programDriver.addClass("srtheight", SortHeigth.class,
+                    "A map/reduce program that gives the height sorted");
+            programDriver.addClass("arheight", ArrHeigth.class,
+                    "A map/reduce program that gives the height of the tallest representant of existing tree species");
+            programDriver.addClass("nbtrees", NbTrees.class,
+                    "A map/reduce program that gives the number of representant of the existing tree species");
+            programDriver.addClass("extrees", ExTrees.class,
+                    "A map/reduce program that gives the name of the existing tree species");
+            programDriver.addClass("arrTrees", ArrTrees.class,
+                    "A map/reduce program that gives the arrondissements that contains trees");
+            programDriver.addClass("wordcount", WordCount.class,
+                    "A map/reduce program that gives the number of words in a file");
+            exitCode = programDriver.run(argv);
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+
+        System.exit(exitCode);
+    }
+}
+```

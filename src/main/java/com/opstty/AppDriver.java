@@ -8,6 +8,8 @@ public class AppDriver {
         int exitCode = -1;
         ProgramDriver programDriver = new ProgramDriver();
         try {
+            programDriver.addClass("mostarr", MostArr.class,
+                    "A map/reduce program that gives the arrondissement that has the most trees");
             programDriver.addClass("oldarr", OldestTrArr.class,
                     "A map/reduce program that gives the arrondissement that has the oldest tree");
             programDriver.addClass("srtheight", SortHeigth.class,
